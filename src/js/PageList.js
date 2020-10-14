@@ -31,8 +31,9 @@ const PageList = (argument = "") => {
                       <div class="card mr-3 ml-3 mb-3" id="e">
                       <a href = "#pagedetail/${article.id}"><img class="card-img-top" style="height: 18rem;" src="${article.background_image}" alt="Card image cap"></a>
                         <div class="card-body bg-dark">
-                        <h4 class="text-white"><a href = "#pagedetail/${article.id}">${article.name}</a></h4>
+                        <h4 class="text-white"><a href = "#pagedetail/${article.id}" class="text-white">${article.name}</a></h4>
                         <h5 class="text-white">${article.released}</h5>
+                        <h5 class="text-white">${article.platforms[0].platform.name}</h5>
                         </div>
                       </div>
                     </div>
@@ -85,6 +86,7 @@ const PageList = (argument = "") => {
                   const nextButton = document.getElementsByClassName("btn btn-outline-danger mr-1")[0];
                   nextButton.addEventListener('click', nextMethod);
               }
+
         });
 
     };
