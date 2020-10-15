@@ -111,6 +111,11 @@ const PageDetail = (argument) => {
 
         </div>
       </section>
+
+      <footer>
+        <hr class="bg-danger">
+        <p> DamVador @ 2020 - Fictionnal website for exercice </p>
+      </footer>
     `;
 
     preparePage();

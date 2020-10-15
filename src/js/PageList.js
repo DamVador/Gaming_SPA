@@ -143,6 +143,11 @@ const PageList = (argument = "") => {
       <section class="page-list mx-auto">
         <div class="row">...loading</div>
       </section>
+
+      <footer>
+        <hr class="bg-danger">
+        <p class="ml-3"> DamVador @ 2020 - Fictionnal website for exercice </p>
+      </footer>
     `;
 
     preparePage();
