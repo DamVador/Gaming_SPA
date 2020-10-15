@@ -32,17 +32,31 @@ const PageList = (argument = "") => {
           response.results.forEach((article) => {
             articles += `
 
+
                     <div class="col-4">
+                    <div class="container">
+
                       <div class="card mr-3 ml-3 mb-3" id="e">
                       <a href = "#pagedetail/${article.id}"><img class="card-img-top" style="height: 18rem;" src="${article.background_image}" alt="Card image cap"></a>
                         <div class="card-body bg-dark">
-                        <h4 class="text-white"><a href = "#pagedetail/${article.id}" class="text-white">${article.name}</a></h4>
-                        <h5 class="text-white">${article.released}</h5>
-                        <h5 class="text-white">${name}</h5>
+                          <h4 class="text-white"><a href = "#pagedetail/${article.id}" class="text-white">${article.name}</a></h4>
+                          <h5 class="text-white">${article.released}</h5>
+                          <h5 class="text-white">${name}</h5>
                         </div>
+                        <div class="overlay">
+                        <div class="bg-dark mx-auto text-center mt-5 pt-3">
+                          <h4 class="text-white"><a href = "#pagedetail/${article.id}" class="text-white">${article.name}</a></h4>
+                          <h5 class="text-white">${article.released}</h5>
+                          <button class="btn btn-outline-danger text-danger" onclick="location.href='#pagedetail/${article.id}'"type="button" >
+                            Get more information
+                          </button>
+                        </div>
+
+
                       </div>
                     </div>
-
+                  </div>
+                  </div>
                 `;
 
           });

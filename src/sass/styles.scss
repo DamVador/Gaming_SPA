@@ -3,5 +3,20 @@ $red: rgb(255, 20, 20);
 p {
   color: $red;
 }
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #333b3f;
+}
 
+.container:hover .overlay {
+  opacity: 1;
+}
 @import "~bootstrap/scss/bootstrap";
