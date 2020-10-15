@@ -17,6 +17,9 @@ const PageList = (argument = "") => {
       } else if (argument && quest === "yes"){
         finalURL = url + "search=" + argument + "&page_size=27";
       }
+      else {
+        finalURL = `https://api.rawg.io/api/games?dates=${dateToday},${date365}&ordering=-added`;
+      }
       console.log(finalURL);
       fetch(`${finalURL}`)
         .then((response) => response.json())
@@ -24,7 +27,6 @@ const PageList = (argument = "") => {
           articles = "";
 
           response.results.forEach((article) => {
-
             articles += `
 
                     <div class="col-4">
@@ -33,7 +35,7 @@ const PageList = (argument = "") => {
                         <div class="card-body bg-dark">
                         <h4 class="text-white"><a href = "#pagedetail/${article.id}" class="text-white">${article.name}</a></h4>
                         <h5 class="text-white">${article.released}</h5>
-                        <h5 class="text-white">${article.platforms[0].platform.name}</h5>
+                        <h5 class="text-white">${name}</h5>
                         </div>
                       </div>
                     </div>
@@ -91,7 +93,7 @@ const PageList = (argument = "") => {
 
     };
 
-    fetchList(`https://api.rawg.io/api/games`, cleanedArgument);
+    fetchList();
 
       function searchMethod(e) {
         e.preventDefault();
