@@ -13,12 +13,15 @@ const PageList = (argument = "") => {
     const fetchList = (url, argument, quest = "no") => {
       let finalURL = url;
       if (argument && quest === "no") {
+        console.log(1);
         finalURL = url + "search=" + argument + "&page_size=9";
       } else if (argument && quest === "yes"){
+        console.log(2);
         finalURL = url + "search=" + argument + "&page_size=27";
       }
-      else {
-        finalURL = `https://api.rawg.io/api/games?dates=${dateToday},${date365}&ordering=-added`;
+      else if (argument && quest === "yo") {
+        console.log(3);
+        finalURL = `https://api.rawg.io/api/games?dates=${dateToday},${date365}&ordering=-added&page_size=27`;
       }
       console.log(finalURL);
       fetch(`${finalURL}`)
@@ -93,13 +96,11 @@ const PageList = (argument = "") => {
 
     };
 
-    fetchList();
 
       function searchMethod(e) {
         e.preventDefault();
             const formSearchValue = document.forms["researchForm"]["fsearch"].value.replace(/\s+/g, "-");
             console.log("listener");
-            alert(`#pagelist/${formSearchValue}`);
             window.location = `#pagelist/${formSearchValue}`;
             fetchList(`https://api.rawg.io/api/games?`, document.forms["researchForm"]["fsearch"].value);
 
@@ -108,6 +109,10 @@ const PageList = (argument = "") => {
       const searchButton = document.getElementsByClassName("btn btn-outline-danger my-2 my-sm-0")[0];
       searchButton.addEventListener('click', searchMethod);
       console.log(searchButton);
+      if (argument === "") {
+        fetchList("http://ok.com", "yo","yo");
+      }
+
   };
 
   const render = () => {
